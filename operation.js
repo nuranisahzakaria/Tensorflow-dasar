@@ -63,3 +63,22 @@ console.log("--------Reverse--------"); //Untuk membalikkan nilai tensor
 const reverse = tf.reverse(a);
 reverse.print();
 
+const yang2d = tf.tensor2d([
+                                [1, 2, 3, 4, 5],
+                                [6, 7, 8, 9, 10]
+                            ]);
+yang2d.print();
+const reverse2d = tf.reverse(a);
+reverse2d.print();
+
+console.log("--------Transpose--------"); 
+const transpose = tf.transpose(yang2d);
+transpose.print();
+
+console.log("--------Equal--------"); //untuk membandingkan kesamaan nilai tensor, hasilnya true atau false
+const equal = tf.equal(a, b); //membandingkan apakah a = b
+equal.print(); 
+
+console.log("--------Greater--------");  //untuk membandingkan nilai tensor lebih besar dari, hasilnya true atau false
+const greater = tf.greater(a, b);
+greater.print();
