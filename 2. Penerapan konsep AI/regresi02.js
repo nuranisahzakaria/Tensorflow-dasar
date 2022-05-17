@@ -47,8 +47,10 @@ function proses(){
 
 // 4. Membuat Models
     const model = tf.sequential();
+    const opt = tf.train.adam(0.2);
     model.add(tf.layers.dense({inputShape : [1], units : 1}));
     model.compile({optimizer : 'sgd', loss : 'meanAbsoluteError'});
+    model.summary();
 
 // 5. Melatih Models
 
@@ -62,6 +64,8 @@ function proses(){
                 }
         );
         //-- Evaluasi model
+        console.log(`===== EVALUASI ${i} =====`);
+        console.log(hasil.history.loss[0]);
         model.evaluate(testTensors.x, testTensors.y).print();
         }
     }
