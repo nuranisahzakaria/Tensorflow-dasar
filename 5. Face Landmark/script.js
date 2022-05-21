@@ -14,4 +14,28 @@ const startStream = () => {
     });
 }
 
+async function main(){
+    const model = await faceLandmarksDetection.load(
+        faceLandmarksDetection.SupportedPackages.mediapipeFacemesh);
+
+    const faces = await model.estimatedFaces({
+        input: video
+    }); 
+
+    if (faces.length > 0){
+
+        for (let i = 0; i < faces.length; i++){
+            const keypoints = faces[i].scaleMesh;
+
+            // long facial keypoints
+            for (let i = 0; i < keypoints.length; i++){
+                const [x, y, z] = keypoints[i]
+
+                console.log('keypoint ${i} : [${x}, ${y}, ${z}]');
+            }
+        }
+    }
+}
+main();
+
 startStream()
