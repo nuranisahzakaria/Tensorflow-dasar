@@ -23,9 +23,9 @@ async function main(){
     }); 
 
     if (faces.length > 0){
-
-        for (let i = 0; i < faces.length; i++){
-            const keypoints = faces[i].scaleMesh;
+        faces.forEach(face => {
+            console.log(face);
+            const keypoints = faces.scaleMesh;
 
             // long facial keypoints
             for (let i = 0; i < keypoints.length; i++){
@@ -33,7 +33,8 @@ async function main(){
 
                 console.log('keypoint ${i} : [${x}, ${y}, ${z}]');
             }
-        }
+        
+        });
     }
 }
 main();
